@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """
 This module contains a type-annotated function concat that takes two strings
 and returns a concatenated string
