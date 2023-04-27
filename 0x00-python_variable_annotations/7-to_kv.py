@@ -12,4 +12,5 @@ def to_kv(k: str, v: Union[int, float]) -> Tuple[str, float]:
     tuple with first element being k and seconf being square
     of v
     """
-    return {k, v**2}
+    ans = [k, v**2]
+    return tuple(ans)
