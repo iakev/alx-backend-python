@@ -7,7 +7,7 @@ import random
 from typing import Generator
 
 
-async def async_generator(nun: None = None) -> Generator[float, None, None]:
+async def async_generator() -> Generator[float, None, None]:
     """
     async generator that yields a random number btn 0 and 10
     """
