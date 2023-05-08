@@ -1,4 +1,4 @@
-#!/usr/bin.env python3
+#!/usr/bin/env python3
 """
 Illustrting how to execute multiple coroutines ata the same time with async
 """
