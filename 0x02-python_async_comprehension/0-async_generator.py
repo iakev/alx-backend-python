@@ -4,9 +4,10 @@ Contains a coroutine that usues async generator
 """
 import asyncio
 import random
+from typing import Generator
 
 
-async def async_generator(nun: None = None) -> float:
+async def async_generator(nun: None = None) -> Generator[float, None, None]:
     """
     async generator that yields a random number btn 0 and 10
     """
