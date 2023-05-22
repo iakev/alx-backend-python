@@ -5,6 +5,7 @@ Contains Unit test for utils.access_nested_map function
 import unittest
 from utils import access_nested_map
 from parameterized import parameterized
+from typing import Any, Mapping, Sequence
 
 
 class TestAccessNestedMap(unittest.TestCase):
@@ -17,7 +18,8 @@ class TestAccessNestedMap(unittest.TestCase):
         ("level_1_map", {"a": {"b": 2}}, ("a",), {"b": 2}),
         ("level_2_map", {"a": {"b": 2}}, ("a", "b"), 2)
     ])
-    def test_access_nested_map(self, _, map, path, expected):
+    def test_access_nested_map(self, _, map: Mapping,
+                               path: Sequence, expected: Any) -> None:
         """
         Method that tests that access_nested_map returns
         what it should
