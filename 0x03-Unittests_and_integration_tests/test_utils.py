@@ -20,8 +20,5 @@ class TestAccessNestedMap(unittest.TestCase):
     ])
     def test_access_nested_map(self, _: str, map: Mapping,
                                path: Sequence, expected: Any) -> None:
-        """
-        Method that tests that access_nested_map returns
-        what it should
-        """
+        """Method that tests that access_nested_map"""
         self.assertEqual(access_nested_map(map, path), expected)
