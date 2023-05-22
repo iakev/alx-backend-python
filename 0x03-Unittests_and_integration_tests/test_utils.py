@@ -28,7 +28,7 @@ class TestAccessNestedMap(unittest.TestCase):
         ("1 level map", {"a": 1}, ("a", "b"), ("b"))
     ])
     def test_access_nested_map_exception(self, _: str, map: Mapping,
-                                         path: Sequence, expected) -> None:
+                                         path: Sequence, expected: Any) -> None:
         """Method testing access_nested_map exception"""
         with self.assertRaises(KeyError) as cm:
             access_nested_map(map, path)
