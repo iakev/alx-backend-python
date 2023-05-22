@@ -18,7 +18,7 @@ class TestAccessNestedMap(unittest.TestCase):
         ("level_1_map", {"a": {"b": 2}}, ("a",), {"b": 2}),
         ("level_2_map", {"a": {"b": 2}}, ("a", "b"), 2)
     ])
-    def test_access_nested_map(self, _, map: Mapping,
+    def test_access_nested_map(self, _: str, map: Mapping,
                                path: Sequence, expected: Any) -> None:
         """
         Method that tests that access_nested_map returns
