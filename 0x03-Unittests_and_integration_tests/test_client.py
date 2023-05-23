@@ -32,7 +32,7 @@ class TestGithubOrgClient(unittest.TestCase):
 
     def test_public_repos_url(self):
         """
-        method to unit test GithubOrgClient._public_repos_url
+        Method to unit test GithubOrgClient._public_repos_url
         """
         mock_url = "https://api.github.com/orgs/google/repos"
         test_payload = {"repos_url": mock_url}
@@ -42,3 +42,29 @@ class TestGithubOrgClient(unittest.TestCase):
             git_client = GithubOrgClient("google")
             url = git_client._public_repos_url
             self.assertEqual(url, test_payload["repos_url"])
+
+    @patch('client.get_json')
+    def test_public_repos(self, mock_get_json):
+        """
+        Method to unit test GithubOrgClient.public_repos
+        """
+        mock_url = "https://api.github.com/orgs/google/repos"
+        payload = {mock_url: [{"name": "google/episodes.dart", "license": {
+          "key": "bsd-3-clause",
+          "name": "BSD 3-Clause \"New\" or \"Revised\" License",
+          "spdx_id": "BSD-3-Clause",
+          "url": "https://api.github.com/licenses/bsd-3-clause",
+          "node_id": "MDc6TGljZW5zZTU="
+        }}, {"name": "cpp-netlib", "license": None},
+            {"name": "ios-webkit-debug-proxy"}]}
+        mock_get_json.return_value = payload[mock_url]
+        with patch('test_client.GithubOrgClient._public_repos_url',
+                   new_callable=PropertyMock) as mock_public_repo:
+            mock_public_repo.return_value = mock_url
+            gitcli = GithubOrgClient("google")
+            names_list = gitcli.public_repos()
+            expected_list = ["google/episodes.dart",
+                             "cpp-netlib", "ios-webkit-debug-proxy"]
+            self.assertEqual(names_list, expected_list)
+            mock_public_repo.assert_called_once()
+        mock_get_json.assert_called_once()
