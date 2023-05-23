@@ -7,6 +7,7 @@ import unittest
 from client import GithubOrgClient
 from unittest.mock import patch
 
+
 class TestGithubOrgClient(unittest.TestCase):
     """
     Implementation of github org client class
@@ -21,10 +22,10 @@ class TestGithubOrgClient(unittest.TestCase):
         """
         Tests that GithubOrgClient.org returns correct value
         """
-        mock_get_json.return_value = {"repos_url": "https://api.github.com/orgs/{}/repos".format(org_name)}
+        mock_url = "https://api.github.com/orgs/{}/repos".format(org_name)
+        mock_get_json.return_value = {"repos_url": mock_url}
         gitclient = GithubOrgClient(org_name)
         org_repo = gitclient.org
-        self.assertEqual(org_repo, {"repos_url": "https://api.github.com/orgs/{}/repos".format(org_name)})
-        mock_get_json.assert_called_with(gitclient.ORG_URL.format(org=org_name))
-        
-        
+        self.assertEqual(org_repo, {"repos_url": mock_url})
+        mock_get_json.assert_called_with
+        (gitclient.ORG_URL.format(org=org_name))
