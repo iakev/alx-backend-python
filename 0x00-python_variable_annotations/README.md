@@ -46,10 +46,6 @@ Make sure you have python installed in your system.
 
 For additional learning and reference, explore these resources:
 
-- [Python 3 Typing Documentation](## Resources
-
-For additional learning and reference, explore these resources:
-
 - [Python 3 Typing Documentation](https://docs.python.org/3/library/typing.html): Official Python documentation on typing and type hinting.
 
 - [MyPy Cheat Sheet](https://mypy.readthedocs.io/en/latest/cheat_sheet_py3.html): A handy cheat sheet for using MyPy, a popular static type checker for Python.
