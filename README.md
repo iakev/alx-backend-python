@@ -29,7 +29,7 @@ Each program or project may have its own set of instructions for usage. Please r
 
 ## Contributing
 
-Contributions to this repository are welcome. If you have any Python programs or projects that you would like to add, feel free to create a pull request. Please follow the contribution guidelines outlined in the repository.
+Contributions to this repository are welcome. If you have any Python programs or projects that you would like to add, feel free to create a pull request.
 
 ## License
 
